@@ -59,7 +59,7 @@ class CardsFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle"
                   color="twitter"
-                  href="https://twitter.com/creativetim"
+                  href=""
                   id="tooltip475038074"
                   target="_blank"
                 >
@@ -73,7 +73,7 @@ class CardsFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle ml-1"
                   color="facebook"
-                  href="https://www.facebook.com/creativetim"
+                  href=""
                   id="tooltip837440414"
                   target="_blank"
                 >
@@ -87,7 +87,7 @@ class CardsFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle ml-1"
                   color="dribbble"
-                  href="https://dribbble.com/creativetim"
+                  href=""
                   id="tooltip829810202"
                   target="_blank"
                 >
@@ -101,7 +101,7 @@ class CardsFooter extends React.Component {
                 <Button
                   className="btn-icon-only rounded-circle ml-1"
                   color="github"
-                  href="https://github.com/creativetimofficial"
+                  href=""
                   id="tooltip495507257"
                   target="_blank"
                 >
@@ -120,7 +120,7 @@ class CardsFooter extends React.Component {
                 <div className="copyright">
                   © {new Date().getFullYear()}{" "}
                   <a
-                    href="https://www.creative-tim.com?ref=adsr-footer"
+                    href=""
                     target="_blank"
                   >
                     NextGeon
