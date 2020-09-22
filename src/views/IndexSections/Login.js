@@ -78,9 +78,10 @@ class Login extends React.Component {
                           autoLoad={true}
                           fields="name,email,picture"
                           callback={responseFacebook} />
+                          <h3>OR</h3>
                           <GoogleLogin
                           clientId="468051170748-oiggu4g72s2c975a2cpkbgscskb9ouut.apps.googleusercontent.com"
-                          buttonText="Google"
+                          buttonText="Log in with Google"
                           cookiePolicy={'single_host_origin'}
                           /> 
                       </div>

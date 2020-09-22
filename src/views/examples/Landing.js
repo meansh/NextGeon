@@ -1,17 +1,23 @@
 import React from "react";
 // nodejs library that concatenates classes
 import classnames from "classnames";
-
+import{ init } from 'emailjs-com';
+import * as emailjs from 'emailjs-com';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // reactstrap components
 import {
   Badge,
   Button,
   Card,
+  Form,
+  FormFeedback,
   CardBody,
   CardImg,
-  FormGroup,
+  Label, 
   Input,
+  FormGroup,
   InputGroupAddon,
   InputGroupText,
   InputGroup,
@@ -29,13 +35,84 @@ import Carousel from "views/IndexSections/Carousel"
 // index page sections
 import Download from "../IndexSections/Download.js";
 
+const notify = () => toast.info("Message delivered, we'll get back to you soon.");
+
+const initialState = {
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    nameError: '',
+    messageError: '',
+    emailError: '',
+    
+}
+
 class Landing extends React.Component {
-  state = {};
+
+    state = initialState
+
+
   componentDidMount() {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     this.refs.main.scrollTop = 0;
   }
+
+  validate = () => {
+    let nameError= '';
+    let emailError= ''; 
+    if(!this.state.name) {
+      nameError = 'Name can not be blank!'
+    }
+
+    if(!this.state.email){
+      emailError = 'Email can not be blank!'
+    }
+
+    if(emailError || nameError) {
+      this.setState({ emailError, nameError })
+      return false;
+    }
+    
+    return true;
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    
+    this.setState(initialState)
+
+    const { email, subject, message } = this.state
+    
+    let templateParams = {
+      from_name: email,
+      to_name: 'ansh.srivastav999@gmail.com',
+      subject: subject,
+      message_html: message,
+     }
+     emailjs.send(
+      'gmail',
+      'template_hAsK3bwf',
+       templateParams,
+      'user_W7ODIguqoHoVrxyGhdeXW'
+     )
+     
+     this.resetForm()
+     
+ }
+ 
+resetForm() {
+    this.setState({
+      name: '',
+      email: '',
+      message: '',
+    })
+  }
+handleChange = (param, e) => {
+    this.setState({ [param]: e.target.value })
+    }
+
   render() {
     return (
       <>
@@ -64,7 +141,7 @@ class Landing extends React.Component {
                         <span>Our company offers</span>
                       </h1>
                       <p className="lead text-white">
-                        Our company offers the most scalable Software Development Service, Machine Learning, etc.   
+                        The most scalable Software Development Service, Machine Learning, etc.   
                       </p>
                       {/* <div className="btn-wrapper">
                         <Button
@@ -481,193 +558,7 @@ class Landing extends React.Component {
               </svg>
             </div>
           </section>
-          {/* <section className="section section-lg">
-            <Container>
-              <Row className="justify-content-center text-center mb-lg">
-                <Col lg="8">
-                  <h2 className="display-3">The amazing Team</h2>
-                  <p className="lead text-muted">
-                    According to the National Oceanic and Atmospheric
-                    Administration, Ted, Scambos, NSIDClead scentist, puts the
-                    potentially record maximum.
-                  </p>
-                </Col>
-              </Row>
-              <Row>
-                <Col className="mb-5 mb-lg-0" lg="3" md="6">
-                  <div className="px-4">
-                    <img
-                      alt="..."
-                      className="rounded-circle img-center img-fluid shadow shadow-lg--hover"
-                      src={require("assets/img/theme/team-1-800x800.jpg")}
-                      style={{ width: "200px" }}
-                    />
-                    <div className="pt-4 text-center">
-                      <h5 className="title">
-                        <span className="d-block mb-1">Ryan Tompson</span>
-                        <small className="h6 text-muted">Web Developer</small>
-                      </h5>
-                      <div className="mt-3">
-                        <Button
-                          className="btn-icon-only rounded-circle"
-                          color="warning"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fa fa-twitter" />
-                        </Button>
-                        <Button
-                          className="btn-icon-only rounded-circle ml-1"
-                          color="warning"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fa fa-facebook" />
-                        </Button>
-                        <Button
-                          className="btn-icon-only rounded-circle ml-1"
-                          color="warning"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fa fa-dribbble" />
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </Col>
-                <Col className="mb-5 mb-lg-0" lg="3" md="6">
-                  <div className="px-4">
-                    <img
-                      alt="..."
-                      className="rounded-circle img-center img-fluid shadow shadow-lg--hover"
-                      src={require("assets/img/theme/team-2-800x800.jpg")}
-                      style={{ width: "200px" }}
-                    />
-                    <div className="pt-4 text-center">
-                      <h5 className="title">
-                        <span className="d-block mb-1">Romina Hadid</span>
-                        <small className="h6 text-muted">
-                          Marketing Strategist
-                        </small>
-                      </h5>
-                      <div className="mt-3">
-                        <Button
-                          className="btn-icon-only rounded-circle"
-                          color="primary"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fa fa-twitter" />
-                        </Button>
-                        <Button
-                          className="btn-icon-only rounded-circle ml-1"
-                          color="primary"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fa fa-facebook" />
-                        </Button>
-                        <Button
-                          className="btn-icon-only rounded-circle ml-1"
-                          color="primary"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fa fa-dribbble" />
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </Col>
-                <Col className="mb-5 mb-lg-0" lg="3" md="6">
-                  <div className="px-4">
-                    <img
-                      alt="..."
-                      className="rounded-circle img-center img-fluid shadow shadow-lg--hover"
-                      src={require("assets/img/theme/team-3-800x800.jpg")}
-                      style={{ width: "200px" }}
-                    />
-                    <div className="pt-4 text-center">
-                      <h5 className="title">
-                        <span className="d-block mb-1">Alexander Smith</span>
-                        <small className="h6 text-muted">UI/UX Designer</small>
-                      </h5>
-                      <div className="mt-3">
-                        <Button
-                          className="btn-icon-only rounded-circle"
-                          color="info"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fa fa-twitter" />
-                        </Button>
-                        <Button
-                          className="btn-icon-only rounded-circle ml-1"
-                          color="info"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fa fa-facebook" />
-                        </Button>
-                        <Button
-                          className="btn-icon-only rounded-circle ml-1"
-                          color="info"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fa fa-dribbble" />
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </Col>
-                <Col className="mb-5 mb-lg-0" lg="3" md="6">
-                  <div className="px-4">
-                    <img
-                      alt="..."
-                      className="rounded-circle img-center img-fluid shadow shadow-lg--hover"
-                      src={require("assets/img/theme/team-4-800x800.jpg")}
-                      style={{ width: "200px" }}
-                    />
-                    <div className="pt-4 text-center">
-                      <h5 className="title">
-                        <span className="d-block mb-1">John Doe</span>
-                        <small className="h6 text-muted">Founder and CEO</small>
-                      </h5>
-                      <div className="mt-3">
-                        <Button
-                          className="btn-icon-only rounded-circle"
-                          color="success"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fa fa-twitter" />
-                        </Button>
-                        <Button
-                          className="btn-icon-only rounded-circle ml-1"
-                          color="success"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fa fa-facebook" />
-                        </Button>
-                        <Button
-                          className="btn-icon-only rounded-circle ml-1"
-                          color="success"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className="fa fa-dribbble" />
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-            </Container>
-          </section> */}
-
+          
           <Login />
           
           <section className="section section-lg pt-0">
@@ -770,10 +661,14 @@ class Landing extends React.Component {
                       <p className="mt-0">
                         Your project is very important to us.
                       </p>
+
+                      
+                       <Form onSubmit={this.handleSubmit.bind(this)}>
                       <FormGroup
                         className={classnames("mt-5", {
                           focused: this.state.nameFocused
                         })}
+                        controlId="formBasicName"
                       >
                         <InputGroup className="input-group-alternative">
                           <InputGroupAddon addonType="prepend">
@@ -784,16 +679,24 @@ class Landing extends React.Component {
                           <Input
                             placeholder="Your name"
                             type="text"
+                            name="name"
+                             value={this.state.name}
+                             onChange={this.handleChange.bind(this, 'name')}
                             onFocus={e => this.setState({ nameFocused: true })}
                             onBlur={e => this.setState({ nameFocused: false })}
                           />
+                          {this.state.nameError ? (
+                          <div style={{ fontsize: 12, color: 'red'}}>{this.state.nameError}</div>) : null }
                         </InputGroup>
                       </FormGroup>
+
                       <FormGroup
                         className={classnames({
                           focused: this.state.emailFocused
                         })}
+                        controlId="formBasicEmail"
                       >
+
                         <InputGroup className="input-group-alternative">
                           <InputGroupAddon addonType="prepend">
                             <InputGroupText>
@@ -803,32 +706,60 @@ class Landing extends React.Component {
                           <Input
                             placeholder="Email address"
                             type="email"
+                            name="email"
+                            value={this.state.email}
+                            onChange={this.handleChange.bind(this, 'email')}
                             onFocus={e => this.setState({ emailFocused: true })}
                             onBlur={e => this.setState({ emailFocused: false })}
                           />
+                          {this.state.emailError ? (
+                          <div style={{ fontsize: 12, color: 'red'}}>{this.state.emailError}</div>) : null }
+
                         </InputGroup>
                       </FormGroup>
-                      <FormGroup className="mb-4">
+                
+                      <FormGroup className="mb-4"
+                      controlId="formBasicMessage">
                         <Input
                           className="form-control-alternative"
                           cols="80"
-                          name="name"
+                          //name="name"
+                          name="message"
                           placeholder="Type a message..."
                           rows="4"
+                          value={this.state.message}
                           type="textarea"
+                          onChange={this.handleChange.bind(this, 'message')}
                         />
+                        { this.state.messageError ? (
+                        <div>{this.state.messageError}</div>) : null}
                       </FormGroup>
+                      
                       <div>
-                        <Button
-                          block
+                        { this.state.isValid ? (
+                          <div>
+                          <Button
                           className="btn-round"
                           color="default"
                           size="lg"
-                          type="button"
+                          
                         >
                           Send Message
-                        </Button>
+                        </Button> 
+                        </div>
+                          
+                       ) : ( <div> <Button
+                          className="btn-round"
+                          color="default"
+                          size="lg"
+                          type="submit"
+                          onClick={notify}
+                        >
+                          Send Message
+                        </Button>     
+                        <ToastContainer /> </div>)}
                       </div>
+                      </Form>
                     </CardBody>
                   </Card>
                 </Col>
