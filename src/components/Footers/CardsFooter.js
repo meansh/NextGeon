@@ -51,11 +51,11 @@ class CardsFooter extends React.Component {
                 <h3 className="text-primary font-weight-light mb-2">
                   Thank you for supporting us!
                 </h3>
-                <h4 className="mb-0 font-weight-light">
+                {/* <h4 className="mb-0 font-weight-light">
                   Let's get in touch on any of these platforms.
-                </h4>
+                </h4> */}
               </Col>
-              <Col className="text-lg-center btn-wrapper" lg="6">
+              {/* <Col className="text-lg-center btn-wrapper" lg="6">
                 <Button
                   className="btn-icon-only rounded-circle"
                   color="twitter"
@@ -112,7 +112,7 @@ class CardsFooter extends React.Component {
                 <UncontrolledTooltip delay={0} target="tooltip495507257">
                   Star on Github
                 </UncontrolledTooltip>
-              </Col>
+              </Col> */}
             </Row>
             <hr />
             <Row className="align-items-center justify-content-md-between">
@@ -128,7 +128,7 @@ class CardsFooter extends React.Component {
                   .
                 </div>
               </Col>
-              <Col md="6">
+              {/* <Col md="6">
                 <Nav className="nav-footer justify-content-end">
                   <NavItem>
                     <NavLink
@@ -163,7 +163,7 @@ class CardsFooter extends React.Component {
                     </NavLink>
                   </NavItem>
                 </Nav>
-              </Col>
+              </Col> */}
             </Row>
           </Container>
         </footer>

@@ -80,7 +80,7 @@ class Login extends React.Component {
                           callback={responseFacebook} />
                           <h3>OR</h3>
                           <GoogleLogin
-                          clientId="468051170748-oiggu4g72s2c975a2cpkbgscskb9ouut.apps.googleusercontent.com"
+                          clientId="147023714660-3j4rp6bajhs86b9mo48q6tsnh9a1qpil.apps.googleusercontent.com"
                           buttonText="Log in with Google"
                           cookiePolicy={'single_host_origin'}
                           /> 

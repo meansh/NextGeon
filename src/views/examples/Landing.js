@@ -5,7 +5,6 @@ import{ init } from 'emailjs-com';
 import * as emailjs from 'emailjs-com';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 // reactstrap components
 import {
   Badge,
@@ -51,14 +50,14 @@ const initialState = {
 class Landing extends React.Component {
 
     state = initialState
-
+   
 
   componentDidMount() {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     this.refs.main.scrollTop = 0;
   }
-
+  
   validate = () => {
     let nameError= '';
     let emailError= ''; 
@@ -137,11 +136,11 @@ handleChange = (param, e) => {
                   <Row>
                     <Col lg="6">
                       <h1 className="display-3 text-white">
-                        A beautiful Software Service{" "}
-                        <span>Our company offers</span>
+                       NextGeon{" "}
+                        <span>Step into the age of disruptive {" "} <b>innovation.</b></span>
                       </h1>
                       <p className="lead text-white">
-                        The most scalable Software Development Service, Machine Learning, etc.   
+                        The most scalable Software Development Services.
                       </p>
                       {/* <div className="btn-wrapper">
                         <Button
@@ -220,14 +219,16 @@ handleChange = (param, e) => {
                               creative
                             </Badge>
                           </div>
-                          <Button
+                          {/* <Button
                             className="mt-4"
                             color="primary"
-                            href="#pablo"
                             onClick={e => e.preventDefault()}
+                            
                           >
-                            Learn more
-                          </Button>
+                            <a style={{ color: 'white' }} href="#c1"> 
+                              Learn more
+                             </a> 
+                          </Button> */}
                         </CardBody>
                       </Card>
                     </Col>
@@ -255,14 +256,15 @@ handleChange = (param, e) => {
                               success
                             </Badge>
                           </div>
-                          <Button
+                          {/* <Button
                             className="mt-4"
                             color="success"
-                            href="#pablo"
                             onClick={e => e.preventDefault()}
                           >
+                            <a style={{ color: 'white' }} href="#c2"> 
                             Learn more
-                          </Button>
+                             </a>  
+                          </Button> */}
                         </CardBody>
                       </Card>
                     </Col>
@@ -290,14 +292,16 @@ handleChange = (param, e) => {
                               Full Stack
                             </Badge>
                           </div>
-                          <Button
+                          {/* <Button
                             className="mt-4"
                             color="warning"
-                            href="#pablo"
                             onClick={e => e.preventDefault()}
+                            
                           >
+                              <a style={{ color: 'white' }} href="#c3"> 
                             Learn more
-                          </Button>
+                            </a>  
+                          </Button> */}
                         </CardBody>
                       </Card>
                     </Col>
@@ -321,12 +325,8 @@ handleChange = (param, e) => {
                     <div className="icon icon-lg icon-shape icon-shape-success shadow rounded-circle mb-5">
                       <i className="ni ni-settings-gear-65" />
                     </div>
-                    <h3>Awesome features</h3>
-                    <p>
-                      The kit comes with three pre-built pages to help you get
-                      started faster. You can change the text and images and
-                      you're good to go.
-                    </p>
+                    <h3>Awesome features of our company</h3>
+                  
                     <ul className="list-unstyled mt-5">
                       <li className="py-2">
                         <div className="d-flex align-items-center">
@@ -340,7 +340,7 @@ handleChange = (param, e) => {
                           </div>
                           <div>
                             <h6 className="mb-0">
-                              Carefully crafted components
+                              Customer-centric
                             </h6>
                           </div>
                         </div>
@@ -356,7 +356,7 @@ handleChange = (param, e) => {
                             </Badge>
                           </div>
                           <div>
-                            <h6 className="mb-0">Amazing page examples</h6>
+                            <h6 className="mb-0">Commitment</h6>
                           </div>
                         </div>
                       </li>
@@ -372,7 +372,7 @@ handleChange = (param, e) => {
                           </div>
                           <div>
                             <h6 className="mb-0">
-                              Super friendly support team
+                              Employee Satisfaction
                             </h6>
                           </div>
                         </div>
@@ -388,7 +388,7 @@ handleChange = (param, e) => {
               <Row className="row-grid align-items-center">
                 <Col md="6">
                   <Card className="bg-default shadow border-0">
-                    <CardImg
+                    {/* <CardImg
                       alt="..."
                       src={require("assets/img/theme/img-1-1200x1000.jpg")}
                       top
@@ -418,10 +418,10 @@ handleChange = (param, e) => {
                         sea-ice then thaws every summer, and that process will
                         continue whatever happens.
                       </p>
-                    </blockquote>
+                    </blockquote> */}
                   </Card>
                 </Col>
-                <Col md="6">
+                {/* <Col md="6">
                   <div className="pl-md-5">
                     <div className="icon icon-lg icon-shape icon-shape-warning shadow rounded-circle mb-5">
                       <i className="ni ni-settings" />
@@ -450,7 +450,7 @@ handleChange = (param, e) => {
                       A beautiful UI Kit for impactful websites
                     </a>
                   </div>
-                </Col>
+                </Col> */}
               </Row>
             </Container>
           </section>
@@ -474,11 +474,9 @@ handleChange = (param, e) => {
                       </div>
                     </div>
                     <div className="pl-4">
-                      <h4 className="display-3 text-white">Modern Interface</h4>
+                      <h4 className="display-3 text-white">Mission Statement</h4>
                       <p className="text-white">
-                        The Arctic Ocean freezes every winter and much of the
-                        sea-ice then thaws every summer, and that process will
-                        continue whatever.
+                        Our mission, at NextGeon has always been to be creative and productive. We strive to offer the best solutions for your unique requirements – enabling business growth, transformation, profitability and – Business Continuity.
                       </p>
                     </div>
                   </div>
@@ -492,19 +490,19 @@ handleChange = (param, e) => {
                         </div>
                         <div className="pl-4">
                           <h5 className="title text-success">
-                            Awesome Support
+                            Our Values
                           </h5>
                           <p>
-                            The Arctic Ocean freezes every winter and much of
-                            the sea-ice then thaws every summer, and that
-                            process will continue whatever.
+                            We have always delivered a solution that not just transforms an idea but also scales it to an all-new level for the businesses.
                           </p>
                           <a
                             className="text-success"
                             href="#pablo"
                             onClick={e => e.preventDefault()}
                           >
-                            Learn more
+                          <b style={{ color: 'black' }}> * Innovation <br /> </b>
+                          <b style={{ color: 'black' }}> * Integrity</b> <br /> 
+                          <b style={{ color: 'black' }}> * Confidentiality </b> <br /> 
                           </a>
                         </div>
                       </div>
@@ -520,7 +518,7 @@ handleChange = (param, e) => {
                         </div>
                         <div className="pl-4">
                           <h5 className="title text-warning">
-                            Modular Components
+                            OUR KEY SERVICES
                           </h5>
                           <p>
                             The Arctic Ocean freezes every winter and much of
@@ -532,7 +530,9 @@ handleChange = (param, e) => {
                             href="#pablo"
                             onClick={e => e.preventDefault()}
                           >
-                            Learn more
+                          <b style={{ color: 'black' }}> * Front End Stacks - ReactJS, Angular, etc. <br /> </b>
+                          <b style={{ color: 'black' }}> * Back End Stacks - NodeJS, Django, etc. <br /> </b>
+                           
                           </a>
                         </div>
                       </div>
@@ -559,9 +559,9 @@ handleChange = (param, e) => {
             </div>
           </section>
           
-          <Login />
+          {/* <Login /> */}
           
-          <section className="section section-lg pt-0">
+          {/* <section className="section section-lg pt-0">
             <Container>
               <Card className="bg-gradient-warning shadow-lg border-0">
                 <div className="p-5">
@@ -590,7 +590,7 @@ handleChange = (param, e) => {
               </Card>
             </Container>
           </section>
-          <Carousel />
+          <Carousel /> */}
           <section className="section section-lg bg-gradient-default">
             <Container className="pt-lg pb-300">
               <Row className="text-center justify-content-center">
@@ -606,30 +606,27 @@ handleChange = (param, e) => {
                   <div className="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
                     <i className="ni ni-settings text-primary" />
                   </div>
-                  <h5 className="text-white mt-3">Building tools</h5>
+                  <h5 className="text-white mt-3">Modern Web Tools</h5>
                   <p className="text-white mt-3">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    The speed of innovation in the web development space is accelerating every year and thus we keep the pace up to that mark.
                   </p>
                 </Col>
                 <Col lg="4">
                   <div className="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
                     <i className="ni ni-ruler-pencil text-primary" />
                   </div>
-                  <h5 className="text-white mt-3">Grow your market</h5>
+                  <h5 className="text-white mt-3">Latest Technologies</h5>
                   <p className="text-white mt-3">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    We use latest technologies to build the modern world that we live in.
                   </p>
                 </Col>
                 <Col lg="4">
                   <div className="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
                     <i className="ni ni-atom text-primary" />
                   </div>
-                  <h5 className="text-white mt-3">Launch time</h5>
+                  <h5 className="text-white mt-3">Seamless Launch time</h5>
                   <p className="text-white mt-3">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    We are commited to give our customer the guarentee to deliver the project on time. We follow Agile methodology and do scrum meeting time to time. 
                   </p>
                 </Col>
               </Row>
@@ -652,12 +649,12 @@ handleChange = (param, e) => {
             </div>
           </section>
           <section className="section section-lg pt-lg-0 section-contact-us">
-            <Container>
+            <Container >
               <Row className="justify-content-center mt--300">
-                <Col lg="8">
+                <Col lg="8" >
                   <Card className="bg-gradient-secondary shadow">
                     <CardBody className="p-lg-5">
-                      <h4 className="mb-1">Want to work with us?</h4>
+                      <h4 className="mb-1" id="c1">Want to work with us?</h4>
                       <p className="mt-0">
                         Your project is very important to us.
                       </p>
